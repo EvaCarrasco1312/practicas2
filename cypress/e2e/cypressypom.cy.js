@@ -1,30 +1,27 @@
 import principal from "../POM/principal"
-import interactuar from "../POM/interactuar"
 
 describe('smoke test', () => {
   const main = new principal()
-  const interact = new interactuar()
 
   beforeEach(() => {
     main.homepage()
-    interact.agregar()
-    
+    main.clicar()
   });
 
   it('Agregar una opción a la web', () => {
-  
+    main.agregar("Marbella")
   })
 
   it('Agregar varias opciones', () => {
-     interact.agregar2()
-     interact.agregar3()
-
+    main.agregar("Marbella")
+    main.agregar("Sidney")
+    main.agregar("Almayate")
   })
 
-    it("Eliminar varias opciones ya existentes", () => {
-      interact.agregar2()
-      interact.agregar3()
-      interact.borrartarea()
+  it("Eliminar varias opciones ya existentes", () => {
+    main.agregar("Marbella")
+    main.agregar("Sidney")
+    main.agregar("Almayate")
+    main.borrartarea()
   })
-  
 })
